@@ -8,7 +8,12 @@ on:
     branches:
       - main
   workflow_dispatch:
-
+env:
+  AZURE_WEBAPP_NAME: josh-flask # set this to your application's name
+  WORKING_DIRECTORY: '.'         # set this to the path to your path of working directory inside github repository, defaults to the repository root
+  PYTHON_VERSION: '3.7' 
+  STARTUP_COMMAND: 'application.py'           # set this to the startup command required to start the gunicorn server. default it is empty
+  
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
